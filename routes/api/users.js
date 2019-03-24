@@ -6,8 +6,21 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const {secretOrKey} = require('../../config/keys');
 
+/**load sms api */
+var Kavenegar = require('kavenegar');
+var api = Kavenegar.KavenegarApi({apikey: '5348392F6C6C6A6D454E535A746246786842646A44783938496A4F6B3050344D'}); 
+
 /** load user model*/
 const User = require('../../models/User');
+
+
+/* @route   POST api/users/getPhoneNumber  */
+/* @desc    get phone number and send activation code to users route */
+/* @access  Public */
+router.post('/getPhoneNumber' , (req , res) => {
+    const errors = {};
+    api.Send({ message: "خدمات پیام کوتاه کاوه نگار" , sender: "100065995" , receptor: "09114187116"});
+});
 
 
 /* @route   POST api/users/register  */
@@ -34,11 +47,11 @@ router.post('/register' , (req , res) => {
                 password : req.body.password ,
                 avatar
             });
-
+            
             bcrypt.genSalt(10 , (err , salt) => {
                 bcrypt.hash(newUser.password , salt , (err , hash) => {
-                    if(err) throw err;
-
+                    if(err) console.log(err);
+                    
                     newUser.password = hash;
 
                     newUser.save()

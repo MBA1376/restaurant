@@ -6,6 +6,8 @@ const port = process.env.PORT || 5000;
 
 /** load routes **/
 const users = require('./routes/api/users');
+const restaurant = require('./routes/api/restaurant');
+const userpanels = require('./routes/api/userpanels');
 
 const app = express();
 
@@ -32,5 +34,7 @@ require('./config/passport')(passport);
 
 /** use routes **/
 app.use('/api/users' , users);
+app.use('/api/restaurant' , restaurant);
+app.use('/api/userpanels' , userpanels);
 
 app.listen(port , () => console.log(`server running on port ${port}`));

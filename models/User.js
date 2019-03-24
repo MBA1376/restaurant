@@ -4,12 +4,10 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     name : {
-        type : String ,
-        required : true
+        type : String 
     } ,
     email : {
-        type : String ,
-        required : true
+        type : String 
     } ,
     password : {
         type : String ,
@@ -21,6 +19,15 @@ const UserSchema = new Schema({
     date : {
         type : Date ,
         default : Date.now
+    } ,
+    phoneNumber : {
+        type : String 
+    } ,
+    birthDate : {
+        type : Date 
+    } ,
+    gender : {
+        type : Boolean
     }
 });
 
