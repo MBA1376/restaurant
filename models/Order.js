@@ -27,7 +27,7 @@ const OrderSchema = new Schema({
         default : Date.now 
     } ,
     trackingNumber : {
-        type : new ObjectId()
+        type : String
     } ,
     description : {
         type :String

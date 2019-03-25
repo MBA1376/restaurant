@@ -8,6 +8,8 @@ const port = process.env.PORT || 5000;
 const users = require('./routes/api/users');
 const restaurant = require('./routes/api/restaurant');
 const userpanels = require('./routes/api/userpanels');
+const addresses = require('./routes/api/addresses');
+const orders = require('./routes/api/orders');
 
 const app = express();
 
@@ -36,5 +38,7 @@ require('./config/passport')(passport);
 app.use('/api/users' , users);
 app.use('/api/restaurant' , restaurant);
 app.use('/api/userpanels' , userpanels);
+app.use('/api/addresses' , addresses);
+app.use('/api/orders' , orders);
 
 app.listen(port , () => console.log(`server running on port ${port}`));
