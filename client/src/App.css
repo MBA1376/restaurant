@@ -1,33 +1,119 @@
-.App {
-  text-align: center;
+html {
+  color : rgb(204, 185, 185);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/** navbar style*/
+.restaurant-navbar{
+  display : flex;
+  /* padding : 0; */
+  list-style: none;
+  padding : 15px 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.restaurant-navbar .login {
+  padding : 15px;
+  border : 1px solid rgb(241, 235, 235);
+  margin-left : 25px;
+}
+.restaurant-navbar .signup {
+  padding : 15px;
+}
+.restaurant-navbar  a {
+  color : gray;
+  text-decoration: none;
+}
+
+.twitter__bird {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.camera {
+  margin-left: auto;
+  margin-right: auto
+}
+
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed; 
+  right: 0;
+  left: 0;
+  top : 0;
+  z-index: 1030;
+  border-bottom: 1px solid rgb(247, 240, 240);
+} 
+
+/** shopping cart style*/
+.fa-stack[data-count]:after{
+  position:absolute;
+  right:0%;
+  top:0%;
+  content: attr(data-count);
+  font-size:30%;
+  padding:.4em;
+  border-radius:999px;
+  line-height:.75em;
   color: white;
+  color:#DF0000;
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
+  background: white;
+  border-style:solid;
+}
+.fa-circle {
+  color:#DF0000;
 }
 
-.App-link {
-  color: #61dafb;
+.red-cart {
+	color: rgb(184, 21, 21); background:white;
+}
+/** end shopping cart style */
+
+/** side bar style*/
+
+/** restaurant image area style*/
+.restaurant-image-area {
+  background-image: url(./img/restaurantimagearea.jpg);
+  height: 300px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/** food component style*/
+.food:hover {
+  transform: scale(1.01);
+}
+
+/*** footer style*/
+.footer {
+  background-color : #383c47;
+  padding : 35px 55px 35px 10px ;
+}
+
+.a-link {
+  color : white;
+  font-size : 13px;
+  text-decoration: none;
+}
+
+.a-link:hover {
+  color : rgb(238, 116, 116);
+  text-decoration: none;
+}
+
+.footer-li {
+  margin-left : 7px;
+}
+
+#youtube {
+  margin-top : 6px;
+}
+
+#telegram {
+  margin-top : 6px;
+}
+
+#copyright p{
+  color : rgb(54, 8, 39);
+  margin-top : 43px;
 }
