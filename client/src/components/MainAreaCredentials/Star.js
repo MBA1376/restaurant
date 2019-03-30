@@ -55,7 +55,7 @@ class Star extends React.Component {
                 style={this.style}
             />
             <a href="#"><b style={this.style}>{rating}</b></a>
-            <button style={this.buttonStyle}>مشاهده {10} نظر</button>
+            <button className="button" style={this.buttonStyle}>مشاهده {10} نظر</button>
       </div>
     );
   }

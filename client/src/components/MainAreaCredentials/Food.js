@@ -27,9 +27,9 @@ class Food extends Component {
             <small>مغز ران گوساله، جعفری، پپرونی، قارچ، سس خامه، فلفل دلمه</small>
         </div>
         <div className="row">
-            <div className="col-md-11">39000 تومان</div>
+            <div className="col-md-11 price">39000 تومان</div>
             <div className="col-md-1">
-                <button style={this.buttonStyle}>+</button>
+                <button className="button" style={this.buttonStyle}>+</button>
             </div>
         </div>
       </div>
