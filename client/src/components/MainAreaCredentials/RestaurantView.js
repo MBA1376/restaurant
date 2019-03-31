@@ -36,14 +36,14 @@ class RestaurantView extends Component {
         <div className="restaurant-view" style = {this.style}>
             <div className="row" style={this.menuBarStyle}>
                 <div className="col-md-12">
-                <ul class="nav nav-pills">
+                <ul className="nav nav-pills">
                     <li className="active" style={this.tabContainerStyle}><a  style={this.aStyle} href="#">منوی رستوران</a></li>
                     <li className={''} style={this.tabContainerStyle}><a style={this.aStyle} href="#">نظرات کاربران</a></li>
                     <li className={''} style={this.tabContainerStyle}><a style={this.aStyle} href="#">اطلاعات کلی</a></li>
                 </ul>
                 </div>
             </div>
-            <div classname="row">
+            <div className="row">
                 <Menu />
             </div>
         </div>

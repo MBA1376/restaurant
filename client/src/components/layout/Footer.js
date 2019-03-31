@@ -12,7 +12,7 @@ class Footer extends Component {
       <div className="footer">
           <div className="row">
             <div className="col-md-10">
-              <ul class="nav nav-pills">
+              <ul className="nav nav-pills">
                   <li className="footer-li" ><a className="a-link"  href="#">وبلاگ تعاون</a></li>
                   <li className="footer-li" ><a className="a-link" href="#">درباره</a></li>
                   <li className="footer-li" ><a className="a-link" href="#">تماس با ما</a></li>
@@ -22,7 +22,7 @@ class Footer extends Component {
                </ul>
             </div>
             <div className="col-md-2">
-              <ul class="nav nav-pills">
+              <ul className="nav nav-pills">
                   <li className="active" id="youtube" ><a  href="#"><img src={youtube}></img></a></li>
                   <li className="active" ><a  href="#"><img src={twitter}></img></a></li>
                   <li className="active" ><a  href="#"><img src={facebook}></img></a></li>

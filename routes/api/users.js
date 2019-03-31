@@ -6,6 +6,10 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const {secretOrKey} = require('../../config/keys');
 
+/** load validations */
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
+
 /**load sms api */
 var Kavenegar = require('kavenegar');
 var api = Kavenegar.KavenegarApi({apikey: '5348392F6C6C6A6D454E535A746246786842646A44783938496A4F6B3050344D'}); 
@@ -27,7 +31,11 @@ router.post('/getPhoneNumber' , (req , res) => {
 /* @desc    register users route */
 /* @access  Public */
 router.post('/register' , (req , res) => {
-    const errors = {};
+    const { errors , isValid } = validateRegisterInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
 
     User.findOne({email :req.body.email})
         .then( user => {
@@ -42,7 +50,6 @@ router.post('/register' , (req , res) => {
             });
 
             const newUser = new User({
-                name : req.body.name ,
                 email : req.body.email ,
                 password : req.body.password ,
                 avatar
@@ -56,7 +63,7 @@ router.post('/register' , (req , res) => {
 
                     newUser.save()
                         .then(user => res.json(user))
-                        .catch(err => console.log(err));
+                        .catch(err => res.status(400).json(err));
                 });
             });
         })
@@ -64,7 +71,11 @@ router.post('/register' , (req , res) => {
 
 
 router.post('/login' , (req , res) => {
-    const errors = {};
+    const { errors , isValid } = validateLoginInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
     
     User.findOne({email : req.body.email})
         .then(user => {

@@ -8,7 +8,8 @@ class GeneralPage extends Component {
   constructor(props){
     super(props);
     this.style = {
-      marginTop : "100px"
+      marginTop : "96px" ,
+      paddingRight : "0px"
     }
   }
   render() {
