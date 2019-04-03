@@ -33,7 +33,7 @@ class RestaurantView extends Component {
       
 
         return (
-        <div className="restaurant-view" style = {this.style}>
+        <div className="restaurant-view" style={this.style}>
             <div className="row" style={this.menuBarStyle}>
                 <div className="col-md-12">
                 <ul className="nav nav-pills">

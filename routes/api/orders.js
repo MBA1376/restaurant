@@ -17,11 +17,25 @@ const Address = require('../../models/Address');
 router.post('/registerOrder' , passport.authenticate('jwt' , {session : false}) , (req , res) => {
     const errors = {};
 
-    const foodsArray = req.body.foods.split(',');
+    // const foodsArray = req.body.foods.split(',');
     const packagingCost = parseFloat(req.body.packagingCost);
     const trackingNumber = mongoose.Types.ObjectId();
+
+    Order.findOne({user : req.user._id})
+        .then(order => {
+            if(!order) {
+                errors.order = 'order not found';
+                return res.status(404).json(errors);
+            }
+            order.payWay = req.body.payWay;
+            order.payPort = req.body.payPort;
+            order.description = req.body.description;
+            order.confirmed = true;
+            order.save()
+                .then(order => res.json(order));
+        });
     
-    Promise
+    /*Promise
         .all(foodsArray.map(foodId => Food.findById(foodId, { price: 1 })))
         .then((foods) => {
             let totalPrice = 
@@ -44,8 +58,35 @@ router.post('/registerOrder' , passport.authenticate('jwt' , {session : false}) 
                 .then( order => res.json(order));
         })
         .catch(err => console.log(err));
-
+    */
 }); 
+
+/* @route   POST api/restaurant/addToCart/:foodId  */
+/* @desc    add food to order for login user */
+/* @access  Private */
+router.post('/addToCart/:foodId' , passport.authenticate('jwt' , {session : false}) , (req , res) => {
+    const errors = {};
+    Order.findOne({user : req.user._id})
+        .then(order => {
+            if(!order) {
+                const foods = [req.params.foodId];
+                const newOrder = new Order({
+                    foods ,
+                    user : req.user._id
+                });
+
+                newOrder.save()
+                    .then(order => res.json(order));
+            }
+            else{
+                order.foods.push(req.params.foodId);
+                console.log(order.foods);
+                order.save()
+                    .then( order => res.json(order));
+            }
+        })
+        .catch( err => console.log(err));
+});
 
 
 module.exports = router;

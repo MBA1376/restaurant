@@ -37,6 +37,9 @@ const OrderSchema = new Schema({
     } ,
     payPort : {
         type : String 
+    } ,
+    confirmed : {
+        type : Boolean
     }
 });
 

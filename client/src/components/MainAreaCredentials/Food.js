@@ -21,13 +21,13 @@ class Food extends Component {
     return (
       <div className="food col-md-6 card" style={this.style}>
         <div className="row">
-            <h6>پیتزا مخصوص</h6>
+            <h6>{this.props.name}</h6>
         </div>
         <div className="row">
-            <small>مغز ران گوساله، جعفری، پپرونی، قارچ، سس خامه، فلفل دلمه</small>
+            <small>{this.props.description}</small>
         </div>
         <div className="row">
-            <div className="col-md-11 price">39000 تومان</div>
+            <div className="col-md-11 price">{this.props.price}</div>
             <div className="col-md-1">
                 <button className="button" style={this.buttonStyle}>+</button>
             </div>

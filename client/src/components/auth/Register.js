@@ -29,10 +29,11 @@ const customStyles = {
     }
 };
 
-class Register_Login extends Component {  
+class Register extends Component {  
     constructor(props) {
         super(props);
         this.state = {
+            name : '' ,
             email : '' ,
             password : '' ,
             password2 : '' ,
@@ -61,6 +62,7 @@ class Register_Login extends Component {
         e.preventDefault();
 
         const newUser = {
+            name : this.state.name ,
             email : this.state.email ,
             password : this.state.password ,
             password2 : this.state.password2
@@ -111,10 +113,24 @@ class Register_Login extends Component {
                                 </div>
                                 <form noValidate onSubmit={this.onSubmit}>
                                     <div className="row text-center">
+                                        <div className="col-sm-12">
+                                            <input 
+                                                className = {classnames('register-input form-control' , {
+                                                    'is-invalid' : errors.name
+                                                })}
+                                                placeholder="نام و نام خانوادگی" 
+                                                name="name"
+                                                type="name"
+                                                value={this.state.name}
+                                                onChange = {this.onChange}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="row text-center">
                                         
                                         <div className="col-sm-12">
                                             <input 
-                                                className = {classnames('login-input form-control' , {
+                                                className = {classnames('register-input form-control' , {
                                                     'is-invalid' : errors.email
                                                 })}
                                                 placeholder="ایمیل" 
@@ -128,7 +144,7 @@ class Register_Login extends Component {
                                     <div className="row text-center">
                                         <div className="col-sm-12">
                                             <input 
-                                                className={classnames('login-input form-control' , {
+                                                className={classnames('register-input form-control' , {
                                                     'is-invalid' : errors.password
                                                 })}
                                                 placeholder="پسورد"
@@ -142,7 +158,7 @@ class Register_Login extends Component {
                                     <div className="row text-center">
                                         <div className="col-sm-12">
                                             <input 
-                                                className={classnames('login-input form-control' , {
+                                                className={classnames('register-input form-control' , {
                                                     'is-invalid' : errors.password2
                                                 })}
                                                 placeholder="تایید پسورد"
@@ -174,7 +190,7 @@ class Register_Login extends Component {
         }
     }
 
-    PropTypes.registerUser = {
+    Register.propTypes = {
         registerUser : PropTypes.func.isRequired ,
         auth : PropTypes.object.isRequired,
         errors : PropTypes.object.isRequired
@@ -185,6 +201,6 @@ class Register_Login extends Component {
         errors : state.errors
     })
 
-    export default connect(mapStateToProps , {registerUser})(withRouter(Register_Login)) ;
+    export default connect(mapStateToProps , {registerUser})(withRouter(Register)) ;
 
  

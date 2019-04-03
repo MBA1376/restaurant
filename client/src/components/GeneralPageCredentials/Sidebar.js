@@ -8,13 +8,13 @@ class Sidebar extends Component {
 
     this.emptyStyle = {
       width : "100%", 
-      height : "230px"
+      height : "230px" 
     }
   }
   render() {
     return (
       <div className="container sidebar" >
-        <div className="row text-center">
+        <div className="row text-center" style={{position : "fixed"}}>
           <img src={figCartEmpty} style={this.emptyStyle}></img>
           <p>سبد خرید خالی است</p>
         </div>
